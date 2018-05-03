@@ -51,14 +51,13 @@ database.ref("/trainTimeData").on("value", function (snapshot) {
     snapshot.forEach(function (childSnapshot) {
 
         //check for valid child
-
         if (!childSnapshot.child("trainName").exists()) {
             return;
         }
         var trainName = childSnapshot.val().trainName;
         var trainDestination = childSnapshot.val().trainDestination;
-        var trainFirstTime = childSnapshot.val().trainFirstTime;
         var trainFrequency = childSnapshot.val().trainFrequency;
+        var trainFirstTime = childSnapshot.val().trainFirstTime;
 
 
 
@@ -83,10 +82,7 @@ database.ref("/trainTimeData").on("value", function (snapshot) {
 
 
 
-
-
-
-        var trainFirstMoment = moment(trainFirstTime, "HH:mm");
+        var trainFirstMoment = moment(trainFirstTime, "HH:mm").subtract(1, "days");
         var differenceInMinutes = Math.floor(moment().diff(trainFirstMoment) / 60000);
 
         // Assume the next train time is in the future unless diff tells us it's in the past
@@ -106,7 +102,7 @@ database.ref("/trainTimeData").on("value", function (snapshot) {
         var trainNameDisplay = $("<td>").text(trainName);
         var trainDestinationDisplay = $("<td>").text(trainDestination);
         var trainFrequencyDisplay = $("<td>").text(trainFrequency);
-        var trainNextTimeDisplay = $("<td>").text(trainArrivalTime); //CHANGE AFTER MATH
+        var trainNextTimeDisplay = $("<td>").text(trainArrivalTime);
         var trainMinutesDisplay = $("<td>").text(minutesAway);
 
         newRow.append(trainNameDisplay, trainDestinationDisplay, trainFrequencyDisplay, trainNextTimeDisplay, trainMinutesDisplay);
@@ -119,6 +115,7 @@ database.ref("/trainTimeData").on("value", function (snapshot) {
 });
 
 // Form Stuff: Click event
+
 $("#submit").on("click", function (event) {
     event.preventDefault();
 
@@ -128,11 +125,6 @@ $("#submit").on("click", function (event) {
     var trainFirstTime = $("#train-time-first").val().trim();
     var trainFrequency = $("#train-frequency").val().trim();
 
-   /* if (trainFirstTime !== moment("HH:mm")) {
-        $("#alert-wrapper").html("<div class='alert alert-danger' role='alert'>This is not a valid time!</div>");
-        return;
-    }*/
-
     database.ref("/trainTimeData").push({
         trainName: trainName,
         trainDestination: trainDestination,
@@ -141,38 +133,16 @@ $("#submit").on("click", function (event) {
         dateAdded: firebase.database.ServerValue.TIMESTAMP
     });
 
-    // Clear form
-    $("#train-form")[0].reset();
-
-});
-
-/*
-function checkValue(inputcheck) {
-    if (inputcheck !== "HH:mm") {
+    if (trainFirstTime !== moment("HH:mm")) {
         $("#alert-wrapper").html("<div class='alert alert-danger' role='alert'>This is not a valid time!</div>");
-        return false
-    } else {
-        $("#alert-wrapper").html("<div class='alert alert-danger' role='alert'>This is not a valid time!</div>");
-        return true
     }
-}
-*/
-
-
-$(document).ready(function() {
-
-  /*  $("#train-time-first").on("blur", function () {
-        var trainFirstTime = $("#train-time-first").val().trim();
-        checkValue(trainFirstTime)
-    });
-    
-
-*/
-
-
 
 });
 
+// Clear form
+$("#submit").on("click", function (event) {
+    $("#train-form")[0].reset();
+});
 
 
 
