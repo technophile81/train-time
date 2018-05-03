@@ -51,13 +51,14 @@ database.ref("/trainTimeData").on("value", function (snapshot) {
     snapshot.forEach(function (childSnapshot) {
 
         //check for valid child
+
         if (!childSnapshot.child("trainName").exists()) {
             return;
         }
         var trainName = childSnapshot.val().trainName;
         var trainDestination = childSnapshot.val().trainDestination;
-        var trainFrequency = childSnapshot.val().trainFrequency;
         var trainFirstTime = childSnapshot.val().trainFirstTime;
+        var trainFrequency = childSnapshot.val().trainFrequency;
 
 
 
@@ -90,6 +91,8 @@ database.ref("/trainTimeData").on("value", function (snapshot) {
 
         // Assume the next train time is in the future unless diff tells us it's in the past
         var trainNextMoment = trainFirstMoment;
+
+
         if (differenceInMinutes > 0) {
             var remaining = trainFrequency - (differenceInMinutes % trainFrequency);
             trainNextMoment = moment().add(remaining, "minutes");
@@ -125,10 +128,10 @@ $("#submit").on("click", function (event) {
     var trainFirstTime = $("#train-time-first").val().trim();
     var trainFrequency = $("#train-frequency").val().trim();
 
-if (trainFirstTime !== "HH:mm") {
-
-    $("#alert-wrapper").text("This is not a valid time");
-}
+   /* if (trainFirstTime !== moment("HH:mm")) {
+        $("#alert-wrapper").html("<div class='alert alert-danger' role='alert'>This is not a valid time!</div>");
+        return;
+    }*/
 
     database.ref("/trainTimeData").push({
         trainName: trainName,
@@ -138,12 +141,38 @@ if (trainFirstTime !== "HH:mm") {
         dateAdded: firebase.database.ServerValue.TIMESTAMP
     });
 
+    // Clear form
+    $("#train-form")[0].reset();
+
 });
 
-// Clear form
-$("#submit").on("click", function (event) {
-    $("#train-form")[0].reset();
+/*
+function checkValue(inputcheck) {
+    if (inputcheck !== "HH:mm") {
+        $("#alert-wrapper").html("<div class='alert alert-danger' role='alert'>This is not a valid time!</div>");
+        return false
+    } else {
+        $("#alert-wrapper").html("<div class='alert alert-danger' role='alert'>This is not a valid time!</div>");
+        return true
+    }
+}
+*/
+
+
+$(document).ready(function() {
+
+  /*  $("#train-time-first").on("blur", function () {
+        var trainFirstTime = $("#train-time-first").val().trim();
+        checkValue(trainFirstTime)
+    });
+    
+
+*/
+
+
+
 });
+
 
 
 
