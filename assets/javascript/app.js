@@ -80,6 +80,8 @@ function displaySnapshot(snapshot) {
         newRow.append(trainNameDisplay, trainDestinationDisplay, trainFrequencyDisplay, trainNextTimeDisplay, trainMinutesDisplay);
         $("#train-info").append(newRow);
 
+        var currentTimeDisplay = $(".currenttime").text(moment().format("HH:mm:ss"));
+
         if (minutesAway <= 1) {
 
             newRow.addClass("table-info");

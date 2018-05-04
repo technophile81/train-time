@@ -9,8 +9,13 @@ body {
     background: linear-gradient(-68deg, #ac32e4, #4801ff);
 }
 
-a { color: rgba(255, 255, 255, 1); }
-a:hover {color: rgba(255, 255, 255, .5); }
+a {
+    color: rgba(255, 255, 255, 1);
+}
+
+a:hover {
+    color: rgba(255, 255, 255, .5);
+}
 
 .navbar {
     background: linear-gradient(-68deg, #ac32e4, #4801ff);
@@ -24,8 +29,9 @@ a:hover {color: rgba(255, 255, 255, .5); }
 
 .jumbotron {
     background-color: transparent;
-    background: linear-gradient(-68deg, rgba(172, 50, 228, .2), rgba(72, 1, 255, .2)), url("../images/train3.jpg") no-repeat top fixed;
-    color: #fff;
+    background: linear-gradient(-68deg, rgba(172, 50, 228, .3), rgba(72, 1, 255, .3)), url("../images/train3.jpg") no-repeat top fixed;
+    color: rgba(255, 255, 255, 1);
+    text-align: center;
     border-radius: 0;
     box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .5);
     height: 260px;
@@ -36,6 +42,24 @@ a:hover {color: rgba(255, 255, 255, .5); }
     font-weight: 700;
     color: #fff;
     text-transform: uppercase;
+    margin-bottom: 0;
+}
+
+.currenttime {
+    
+    font-size: 3.25rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px rgba(65, 188, 251, 1);
+    
+}
+
+.fas {
+    margin-right: 5px;
+}
+
+a.navbar-brand:hover {
+    opacity: .75;
 }
 
 #form-wrapper {
@@ -151,10 +175,14 @@ label {
     border: 0 !important;
     outline: 0 !important;
     background: transparent;
-    border-bottom: 1px solid rgba(0,0,0, .5) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, .5) !important;
     border-radius: 0;
 }
-::placeholder { opacity: 0.3!important; font-size: .75rem;}
+
+::placeholder {
+    opacity: 0.3 !important;
+    font-size: .75rem;
+}
 
 /* Sticky footer styles
 -------------------------------------------------- */
@@ -187,4 +215,7 @@ body {
     background: linear-gradient(-68deg, rgba(172, 50, 228, .2), rgba(72, 1, 255, .2));
     box-shadow: 0px 2px 8px 2px rgba(0, 0, 0, 0.25);
 }
-.footer a { text-decoration: underline; }
+
+.footer a {
+    text-decoration: underline;
+}
