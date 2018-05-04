@@ -34,7 +34,7 @@
             </a>
 
             <div class="description ml-auto">
-                Up-to-the-minute information on your next train.
+                Up-to-the-minute train schedule
             </div>
         </div>
     </nav>
@@ -59,33 +59,33 @@
                     <form id="train-form">
 
                         <div class="form-row">
-                            <div class="form-group col-6">
+                            <div class="form-group col-sm-6 col-xs-12">
                                 <label for="train-name">Train Name</label>
                                 <input type="text" class="form-control form-control-sm" id="train-name" placeholder="Hogwarts Express">
                             </div>
-                            <div class="form-group col-6">
+                            <div class="form-group col-sm-6 col-xs-12">
                                 <label for="train-destination">Destination</label>
                                 <input type="text" class="form-control form-control-sm" id="train-destination" placeholder="Hogwarts">
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="form-group col-5">
+                            <div class="form-group col-lg-5 col-sm-6 col-xs-12">
                                 <label for="train-time-first">First Train Time (24 hr)</label>
                                 <input type="text" class="form-control form-control-sm" id="train-time-first" placeholder="HH:MM">
                                 <div id="alert-wrapper"></div>
                             </div>
-                            <div class="form-group col-5">
+                            <div class="form-group col-lg-5 col-sm-6 col-xs-12">
                                 <label for="train-frequency">Frequency (min)</label>
                                 <input type="number" class="form-control form-control-sm" id="train-frequency" placeholder="25">
                             </div>
-                            <div class="form-group col-2 d-flex align-items-end flex-column">
+                            <div class="form-group col-lg-2 col-sm-12 d-flex align-items-end flex-column">
                                 <label for="train-frequency">&nbsp;</label>
                                 <button class="btn btn-primary btn-sm btn-block mt-auto" type="submit" id="submit">Submit</button>
                             </div>
                         </div>
                     </form>
                 </div>
-                <div id="schedule-wrapper">
+                <div id="schedule-wrapper" class="table-responsive">
                     <h2>Current Train Schedule</h2>
                     <table class="table table-hover">
                         <thead>

@@ -15,6 +15,7 @@ a {
 
 a:hover {
     color: rgba(255, 255, 255, .5);
+    cursor: pointer;
 }
 
 .navbar {
@@ -29,12 +30,14 @@ a:hover {
 
 .jumbotron {
     background-color: transparent;
-    background: linear-gradient(-68deg, rgba(172, 50, 228, .3), rgba(72, 1, 255, .3)), url("../images/train3.jpg") no-repeat top fixed;
+    background: linear-gradient(-68deg, rgba(172, 50, 228, .4), rgba(72, 1, 255, .4)), url("../images/train3.jpg") no-repeat top fixed;
     color: rgba(255, 255, 255, 1);
     text-align: center;
     border-radius: 0;
     box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .5);
     height: 260px;
+    text-transform: uppercase;
+    font-weight: 700;
 }
 
 .display-3 {
@@ -43,15 +46,14 @@ a:hover {
     color: #fff;
     text-transform: uppercase;
     margin-bottom: 0;
+    letter-spacing: 1px;
 }
 
 .currenttime {
-    
     font-size: 3.25rem;
     font-weight: 900;
     letter-spacing: 2px;
     text-shadow: 2px 2px rgba(65, 188, 251, 1);
-    
 }
 
 .fas {
