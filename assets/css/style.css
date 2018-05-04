@@ -219,3 +219,9 @@ body {
 .footer a {
     text-decoration: underline;
 }
+
+
+@media (max-width: 650px) { 
+.description { display: none; }
+
+}
