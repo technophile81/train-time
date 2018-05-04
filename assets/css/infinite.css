@@ -35,9 +35,9 @@
     }
 */
 @-webkit-keyframes alertPulse {
-    0% { background-color: rgba(0, 255, 255, .5); }
-    50% {background-color: rgba(0, 255, 255, .25);   }
-    100% {background-color: rgba(0, 255, 255, .5); }
+    0% { background-color: rgba(65, 188, 251, .5); }
+    50% {background-color: rgba(65, 188, 251, .25);   }
+    100% {background-color: rgba(65, 188, 251, .5); }
 }
 
 
