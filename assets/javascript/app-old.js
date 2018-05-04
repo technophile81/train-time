@@ -32,13 +32,19 @@ connectedRef.on("value", function (snap) {
     }
 });
 
+// When first loaded or when the connections list changes...
+connectionsRef.on("value", function (snap) {
+
+    // Display the viewer count in the html.
+    // The number of online users is the number of children in the connections list.
+    //  $("#connected-viewers").text(snap.numChildren());
+});
 
 // --------------------------------------------------------------
 
-var intervalId = undefined;
-var currentSnapshot = null;
+database.ref("/trainTimeData").on("value", function (snapshot) {
 
-function displaySnapshot(snapshot) {
+    // ------------------------------------
 
     $("#train-info").empty();
 
@@ -54,20 +60,20 @@ function displaySnapshot(snapshot) {
         var trainFirstTime = childSnapshot.val().trainFirstTime;
 
 
-        var trainFirstMoment = moment(trainFirstTime, "HH:mm"); //.subtract(1, "days");
-        var differenceInMs = moment().diff(trainFirstMoment);
+        var trainFirstMoment = moment(trainFirstTime, "HH:mm").subtract(1, "days");
+        var differenceInMinutes = Math.floor(moment().diff(trainFirstMoment) / 60000);
 
         // Assume the next train time is in the future unless diff tells us it's in the past
         var trainNextMoment = trainFirstMoment;
 
 
-        if (differenceInMs > 0) {
-            var remaining = (trainFrequency * 60000) - (differenceInMs % (trainFrequency * 60000));
-            trainNextMoment = moment().add(remaining);
+        if (differenceInMinutes > 0) {
+            var remaining = trainFrequency - (differenceInMinutes % trainFrequency);
+            trainNextMoment = moment().add(remaining, "minutes");
         }
 
-        var trainArrivalTime = trainNextMoment.format("HH:mm a");
-        var minutesAway = Math.ceil(trainNextMoment.diff(moment()) / 60000);
+        var trainArrivalTime = trainNextMoment.format("HH:mm:ss a");
+        var minutesAway = Math.floor(trainNextMoment.diff(moment()) / 60000);
 
         // Show form stuff
         var newRow = $("<tr>");
@@ -79,26 +85,18 @@ function displaySnapshot(snapshot) {
 
         newRow.append(trainNameDisplay, trainDestinationDisplay, trainFrequencyDisplay, trainNextTimeDisplay, trainMinutesDisplay);
         $("#train-info").append(newRow);
+
+        countDown(trainArrivalTime);
+
     });
-}
 
-function intervalSnapshot() {
-    if (currentSnapshot !== null && currentSnapshot !== undefined) {
-        displaySnapshot(currentSnapshot);
-    }
-}
-
-database.ref("/trainTimeData").on("value", function (snapshot) {
-    currentSnapshot = snapshot;
-
-    if (intervalId === undefined) {
-        setInterval(intervalSnapshot, 1000);
-    }
-
-    displaySnapshot(snapshot);
 }, function (errorObject) {
     console.log("The read failed: " + errorObject.code);
 });
+
+function countDown() {
+    setInterval(function() { }, 1000);
+}
 
 // Form Stuff: Click event
 
@@ -122,6 +120,7 @@ $("#submit").on("click", function (event) {
     if (trainFirstTime !== moment("HH:mm")) {
         $("#alert-wrapper").html("<div class='alert alert-danger' role='alert'>This is not a valid time!</div>");
     }
+
 });
 
 // Clear form
