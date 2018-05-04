@@ -54,7 +54,7 @@ function displaySnapshot(snapshot) {
         var trainFirstTime = childSnapshot.val().trainFirstTime;
 
 
-        var trainFirstMoment = moment(trainFirstTime, "HH:mm"); //.subtract(1, "days");
+        var trainFirstMoment = moment(trainFirstTime, "HH:mm A"); //.subtract(1, "days");
         var differenceInMs = moment().diff(trainFirstMoment);
 
         // Assume the next train time is in the future unless diff tells us it's in the past
@@ -66,7 +66,7 @@ function displaySnapshot(snapshot) {
             trainNextMoment = moment().add(remaining);
         }
 
-        var trainArrivalTime = trainNextMoment.format("HH:mm a");
+        var trainArrivalTime = trainNextMoment.format("HH:mm A");
         var minutesAway = Math.ceil(trainNextMoment.diff(moment()) / 60000);
 
         // Show form stuff
@@ -79,6 +79,18 @@ function displaySnapshot(snapshot) {
 
         newRow.append(trainNameDisplay, trainDestinationDisplay, trainFrequencyDisplay, trainNextTimeDisplay, trainMinutesDisplay);
         $("#train-info").append(newRow);
+
+        if (minutesAway <= 1) {
+
+            newRow.addClass("table-info");
+
+           /* $(".table-info").animate( { backgroundColor: "#f00" }, 2000 )
+            .animate( { backgroundColor: "transparent" }, 2000 ); */
+
+        }
+        else if (minutesAway !== 1) { 
+            newRow.removeClass("table-info");
+        }
     });
 }
 
@@ -119,9 +131,9 @@ $("#submit").on("click", function (event) {
         dateAdded: firebase.database.ServerValue.TIMESTAMP
     });
 
-    if (trainFirstTime !== moment("HH:mm")) {
+   /* if (trainFirstTime !== moment("HH:mm")) {
         $("#alert-wrapper").html("<div class='alert alert-danger' role='alert'>This is not a valid time!</div>");
-    }
+    }*/
 });
 
 // Clear form

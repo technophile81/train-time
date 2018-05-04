@@ -10,6 +10,8 @@
  -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
         crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Rye%7CMontserrat:500,700,900" rel="stylesheet">
+
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -24,48 +26,68 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">Navbar</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home
-                            <span class="sr-only">(current)</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Disabled</a>
-                    </li>
-                </ul>
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-train d-inline-block align-baseline"></i>
+                <h1 class="display-3 d-inline-block">Train Time </h1>
+            </a>
+
+            <div class="description ml-auto">
+                Up to the minute information on your next train.
             </div>
         </div>
     </nav>
 
+    </div>
+    </nav>
+
     <div class="jumbotron">
         <div class="container">
-            <h1 class="display-3">Train Time!</h1>
-            <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron
-                and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-            <p>
-                <a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a>
-            </p>
+
+
         </div>
     </div>
 
-    <div class="container">
+    <div class="container main-wrap">
         <div class="row">
             <div class="col-md-12">
+
+
+
+
+
+                <div id="form-wrapper">
+                    <h2>Add Train</h2>
+                    <form id="train-form">
+
+                        <div class="form-row">
+                            <div class="form-group col-6">
+                                <label for="train-name">Train Name</label>
+                                <input type="text" class="form-control form-control-sm" id="train-name" placeholder="Hogwarts Express">
+                            </div>
+                            <div class="form-group col-6">
+                                <label for="train-destination">Destination</label>
+                                <input type="text" class="form-control form-control-sm" id="train-destination" placeholder="Hogwarts">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-5">
+                                <label for="train-time-first">First Train Time (24 hr)</label>
+                                <input type="text" class="form-control form-control-sm" id="train-time-first" placeholder="HH:MM">
+                                <div id="alert-wrapper"></div>
+                            </div>
+                            <div class="form-group col-5">
+                                <label for="train-frequency">Frequency (min)</label>
+                                <input type="number" class="form-control form-control-sm" id="train-frequency" placeholder="25">
+                            </div>
+                            <div class="form-group col-2 d-flex align-items-end flex-column">
+                                <label for="train-frequency">&nbsp;</label>
+                                <button class="btn btn-primary btn-sm btn-block mt-auto" type="submit" id="submit">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
                 <div id="schedule-wrapper">
                     <h2>Current Train Schedule</h2>
                     <table class="table table-hover">
@@ -84,30 +106,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div id="form-wrapper">
-                    <h2>Add Train</h2>
-                    <form id="train-form">
-                        <div class="form-group">
-                            <label for="train-name">Train Name</label>
-                            <input type="text" class="form-control" id="train-name" placeholder="Hogwarts Express">
-                        </div>
-                        <div class="form-group">
-                            <label for="train-destination">Destination</label>
-                            <input type="text" class="form-control" id="train-destination" placeholder="Hogwarts">
-                        </div>
-                        <div class="form-group">
-                            <label for="train-time-first">First Train Time (24 hour Military Time - HH:MM)</label>
-                            <input type="text" class="form-control" id="train-time-first" placeholder="13:30">
-                            <div id="alert-wrapper"></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="train-frequency">Frequency (min)</label>
-                            <input type="number" class="form-control" id="train-frequency" placeholder="25">
-                        </div>
-                        <button class="btn btn-primary" type="submit" id="submit">Submit</button>
 
-                    </form>
-                </div>
             </div>
         </div>
 
@@ -118,7 +117,8 @@
         </div>
     </footer>
 </body>
+<script src="assets/javascript/jquery.pulse.min.js"></script>
 
-<script src="assets/javascript/app-backup.js"></script>
+<script src="assets/javascript/app.js"></script>
 
 </html>

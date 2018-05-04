@@ -1,39 +1,172 @@
-#form-wrapper { margin-bottom: 30px;}
+@import "infinite.css";
 
-.error{
-	display: none;
-	margin-left: 10px;
-}		
-
-.error_show{
-	color: red;
-	margin-left: 10px;
+body {
+    padding-top: 60px;
+    font-family: Montserrat-Regular;
+    background: #7918f2 url("../images/train1.jpg");
+    background: -webkit-linear-gradient(-68deg, #ac32e4, #4801ff);
+    background: -o-linear-gradient(-68deg, #ac32e4, #4801ff);
+    background: -moz-linear-gradient(-68deg, #ac32e4, #4801ff);
+    background: linear-gradient(-68deg, #ac32e4, #4801ff);
 }
 
-input.invalid, textarea.invalid{
-	border: 2px solid red;
+.navbar {
+    background: linear-gradient(-68deg, #ac32e4, #4801ff);
+box-shadow: 0px 2px 8px 2px rgba(0, 0, 0, 0.25);
+}
+.navbar .description { color: #fff; font-size: .75rem;}
+.jumbotron {
+    background-color: transparent;
+    background: linear-gradient(-68deg, rgba(172, 50, 228, .2), rgba(72, 1, 255, .2)), url("../images/train3.jpg") no-repeat top fixed;
+    color: #fff;
+    border-radius: 0;
+    box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .5);
+height: 260px;
 }
 
-input.valid, textarea.valid{
-	border: 2px solid green;
+.display-3 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
 }
 
+#form-wrapper {
+    margin-bottom: 30px;
+    box-shadow: 0px 2px 8px 2px rgba(0, 0, 0, 0.25);
+
+}
+
+.error {
+    display: none;
+    margin-left: 10px;
+}
+
+.error_show {
+    color: red;
+    margin-left: 10px;
+}
+
+input.invalid,
+textarea.invalid {
+    border: 2px solid red;
+}
+
+input.valid,
+textarea.valid {
+    border: 2px solid green;
+}
+
+/* Table Stuff */
+
+h2 {
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+#schedule-wrapper {
+    box-shadow: 0px 2px 8px 2px rgba(0, 0, 0, 0.15);
+
+    padding: 15px;
+    border-radius: 16px;
+    margin-bottom: 30px;
+    /* overflow: hidden;
+    background: #7918f2;
+    background: -webkit-linear-gradient(-68deg, #ac32e4, #4801ff);
+    background: -o-linear-gradient(-68deg, #ac32e4, #4801ff);
+    background: -moz-linear-gradient(-68deg, #ac32e4, #4801ff);
+    background: linear-gradient(-68deg, #ac32e4, #4801ff); */
+}
+
+table {
+    background-color: #fff;
+}
+
+td {
+    font-family: Montserrat-Regular;
+    font-size: 14px;
+    color: #fff;
+    line-height: 1.4;
+}
+
+th {
+    font-family: Montserrat-Medium;
+    font-size: 12px;
+    line-height: 1.4;
+    text-transform: uppercase;
+    background-color: rgba(255, 255, 255, 0.32);
+    padding-top: 24px;
+    padding-bottom: 20px;
+}
+
+/*tbody tr:nth-child(odd) {
+  background-color: #fff }*/
+
+tbody tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.table-info,
+.table-info>td,
+.table-info>th {
+    transition: all .25s ease-in-out;
+    background-color: rgba(0, 255, 255, 0.25) !important;
+    animation: alertPulse 2s ease-out;
+    animation-iteration-count: infinite;
+    opacity: 1;}
+
+/* Form Styles
+-------------------------------------------------- */
+
+#form-wrapper {
+    margin-top: -80px;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 15px;
+}
+
+#form-wrapper h2 {
+    color: rgba(172, 50, 228, 1);
+}
+
+#form-wrapper input {}
+
+label {
+    font-family: Montserrat-Medium;
+    font-size: 12px;
+    line-height: 1.4;
+    text-transform: uppercase;
+}
+
+.btn-primary { background-color: rgba(0, 255, 255, .25);}
 
 /* Sticky footer styles
 -------------------------------------------------- */
+
 html {
     position: relative;
     min-height: 100%;
-  }
-  body {
-    margin-bottom: 60px; /* Margin bottom by footer height */
-  }
-  .footer {
+}
+
+body {
+    margin-bottom: 60px;
+    /* Margin bottom by footer height */
+}
+
+.footer {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 60px; /* Set the fixed height of the footer here */
-    line-height: 60px; /* Vertically center the text there */
+    height: 60px;
+    /* Set the fixed height of the footer here */
+    line-height: 60px;
+    /* Vertically center the text there */
     background-color: #f5f5f5;
-  }
-  
+    box-shadow: 0px 2px 8px 2px rgba(0, 0, 0, 0.25);
+
+}
+
+
