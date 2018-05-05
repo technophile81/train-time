@@ -158,7 +158,10 @@ $(document).ready(function () {
             uiShown: function () {
                 // The widget is rendered.
                 // Hide the loader.
-                document.getElementById('loader').style.display = 'none';
+                $('.modal').modal({
+                    backdrop: 'static',
+                    keyboard: false
+                });
             }
         },
         // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
@@ -182,10 +185,6 @@ $(document).ready(function () {
         console.log("user is logged in: " + firebase.auth().currentUser);
     } else {
         console.log("user is not logged in: " + firebase.auth().currentUser);
-        $('.modal').modal({
-            backdrop: 'static',
-            keyboard: false
-      });     
     }
 
 
