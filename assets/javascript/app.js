@@ -141,6 +141,7 @@ $("#submit").on("click", function (event) {
 });
 
 $('.modal').modal({
+    backdrop: 'static',
     keyboard: false
 })
 
