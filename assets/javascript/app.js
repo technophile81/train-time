@@ -141,7 +141,9 @@ $(document).ready(function () {
     });
 
     firebase.auth().onAuthStateChanged(function (user) {
-        if (!user) {
+        if (user) {
+            console.log("user is logged in: " + user);
+        } else {
             $('.modal').modal({
                   backdrop: 'static',
                   keyboard: false
