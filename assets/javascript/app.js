@@ -181,6 +181,7 @@ $(document).ready(function () {
     if (firebase.auth().currentUser) {
         console.log("user is logged in: " + firebase.auth().currentUser);
     } else {
+        console.log("user is not logged in: " + firebase.auth().currentUser);
         $('.modal').modal({
             backdrop: 'static',
             keyboard: false
