@@ -152,7 +152,7 @@ $(document).ready(function () {
                 // Return type determines whether we continue the redirect automatically
                 // or whether we leave that to developer to handle.
                 $('.modal').modal('hide');
-                return true;
+                return false;
             },
             uiShown: function () {
                 // The widget is rendered.
