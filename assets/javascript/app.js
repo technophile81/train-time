@@ -151,21 +151,6 @@ $('.modal').modal({
    // Initialize the FirebaseUI Widget using Firebase.
 var ui = new firebaseui.auth.AuthUI(firebase.auth());
 
-
-/*
- ui.start('#firebaseui-auth-container', {
-    signInOptions: [
-      // List of OAuth providers supported.
-      firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-      firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-      firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-      firebase.auth.GithubAuthProvider.PROVIDER_ID
-    ],
-    // Other config options...
-  }); */
-
-
-
 var uiConfig = {
     callbacks: {
       signInSuccessWithAuthResult: function(authResult, redirectUrl) {
@@ -182,7 +167,7 @@ var uiConfig = {
     },
     // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
     signInFlow: 'popup',
-    signInSuccessUrl: '/',
+    signInSuccessUrl: '/train-time/',
     signInOptions: [
       // Leave the lines as is for the providers you want to offer your users.
       firebase.auth.GoogleAuthProvider.PROVIDER_ID,
@@ -191,7 +176,7 @@ var uiConfig = {
 
     ],
     // Terms of service url.
-    tosUrl: '<your-tos-url>'
+    //tosUrl: '<your-tos-url>'
   };
 
   // The start method will wait until the DOM is loaded.
