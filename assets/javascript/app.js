@@ -157,7 +157,7 @@ $(document).ready(function () {
             signInSuccess: function (currentUser, credential, redirectUrl) {
                 $('.modal').modal('hide');
                 return false;
-            }
+            },
             uiShown: function () {
                 // The widget is rendered.
                 // Hide the loader.
