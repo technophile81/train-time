@@ -157,7 +157,9 @@ var uiConfig = {
         // User successfully signed in.
         // Return type determines whether we continue the redirect automatically
         // or whether we leave that to developer to handle.
+        $(".modal").hide();
         return true;
+        
       },
       uiShown: function() {
         // The widget is rendered.
