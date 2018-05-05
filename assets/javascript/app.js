@@ -140,19 +140,6 @@ $(document).ready(function () {
 
     });
 
-    firebase.auth().onAuthStateChanged(function (user) {
-        if (user) {
-            console.log("user is logged in: " + user);
-        } else {
-            $('.modal').modal({
-                  backdrop: 'static',
-                  keyboard: false
-            });                    
-        }
-    })
-
-
-
     // Auth using a popup.
 
     // Initialize the FirebaseUI Widget using Firebase.
@@ -190,6 +177,15 @@ $(document).ready(function () {
 
     // The start method will wait until the DOM is loaded.
     ui.start('#firebaseui-auth-container', uiConfig);
+
+    if (firebase.auth().currentUser) {
+        console.log("user is logged in: " + firebase.auth().currentUser);
+    } else {
+        $('.modal').modal({
+            backdrop: 'static',
+            keyboard: false
+      });     
+    }
 
 
 
