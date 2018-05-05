@@ -122,11 +122,16 @@ $(document).ready(function () {
         var trainFrequency = $("#train-frequency").val().trim();
 
         if (!moment(trainFirstTime, 'HH:mm').isValid()) {
-            $("#alert-wrapper").html("<div class='alert alert-danger' role='alert'>This is not a valid time!</div>");
+            $("#time-wrapper").html("<div class='alert alert-danger' role='alert'>This is not a valid time!</div>");
             return false;
         } else {
-            $("#alert-wrapper").html("");
+            $("#time-wrapper").html("");
 
+        }
+
+        if (trainFrequency < 1) {
+            $("#freq-wrapper").html("<div class='alert alert-danger' role='alert'>This is not a valid time!</div>");
+            return false;
         }
 
         database.ref("/trainTimeData").push({

@@ -196,6 +196,8 @@ textarea.valid {
     border: 2px solid green;
 }
 
+.alert { padding: .5rem 1rem; margin-top: 5px};
+
 
 /* Sticky footer styles
 -------------------------------------------------- */
