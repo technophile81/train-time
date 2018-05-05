@@ -132,6 +132,8 @@ $(document).ready(function () {
         if (trainFrequency < 1) {
             $("#freq-wrapper").html("<div class='alert alert-danger' role='alert'>This is not a valid time!</div>");
             return false;
+        } else {
+            $("freq-wrapper").html("")
         }
 
         database.ref("/trainTimeData").push({
