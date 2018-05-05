@@ -164,6 +164,8 @@ $(document).ready(function () {
             },
             signInSuccess: function (currentUser, credential, redirectUrl) {
                 $('.modal').modal('hide');
+                $(".footer").hide();
+
                 return false;
             },
             uiShown: function () {
