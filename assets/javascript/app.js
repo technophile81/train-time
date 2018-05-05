@@ -154,9 +154,17 @@ $(document).ready(function () {
                 $('.modal').modal('hide');
                 return false;
             },
+            signInSuccess: function (currentUser, credential, redirectUrl) {
+                $('.modal').modal('hide');
+                return false;
+            }
             uiShown: function () {
                 // The widget is rendered.
                 // Hide the loader.
+                $('.modal').modal({
+                    backdrop: 'static',
+                    keyboard: false
+                });
                 document.getElementById('loader').style.display = 'none';
             }
         },
@@ -175,16 +183,6 @@ $(document).ready(function () {
 
     // The start method will wait until the DOM is loaded.
     ui.start('#firebaseui-auth-container', uiConfig);
-
-    if (firebase.auth().currentUser) {
-        console.log("user is logged in: " + firebase.auth().currentUser);
-    } else {
-        console.log("user is not logged in: " + firebase.auth().currentUser);
-        $('.modal').modal({
-            backdrop: 'static',
-            keyboard: false
-        });
-    }
 
 
 
