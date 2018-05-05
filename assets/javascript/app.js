@@ -9,7 +9,6 @@ var config = {
 };
 firebase.initializeApp(config);
 
-
 // Create a variable to reference the database.
 var database = firebase.database();
 
@@ -32,7 +31,6 @@ connectedRef.on("value", function (snap) {
     }
 });
 
-
 // --------------------------------------------------------------
 
 var intervalId = undefined;
@@ -53,13 +51,11 @@ function displaySnapshot(snapshot) {
         var trainFrequency = childSnapshot.val().trainFrequency;
         var trainFirstTime = childSnapshot.val().trainFirstTime;
 
-
         var trainFirstMoment = moment(trainFirstTime, "HH:mm A"); //.subtract(1, "days");
         var differenceInMs = moment().diff(trainFirstMoment);
 
         // Assume the next train time is in the future unless diff tells us it's in the past
         var trainNextMoment = trainFirstMoment;
-
 
         if (differenceInMs > 0) {
             var remaining = (trainFrequency * 60000) - (differenceInMs % (trainFrequency * 60000));
@@ -85,9 +81,6 @@ function displaySnapshot(snapshot) {
         if (minutesAway <= 1) {
 
             newRow.addClass("table-info");
-
-           /* $(".table-info").animate( { backgroundColor: "#f00" }, 2000 )
-            .animate( { backgroundColor: "transparent" }, 2000 ); */
 
         }
         else if (minutesAway !== 1) { 
@@ -125,6 +118,14 @@ $("#submit").on("click", function (event) {
     var trainFirstTime = $("#train-time-first").val().trim();
     var trainFrequency = $("#train-frequency").val().trim();
 
+    if (!moment(trainFirstTime, 'HH:mm').isValid()) {
+        $("#alert-wrapper").html("<div class='alert alert-danger' role='alert'>This is not a valid time!</div>");
+    return false;
+    } else {
+        $("#alert-wrapper").html("");
+
+    }
+
     database.ref("/trainTimeData").push({
         trainName: trainName,
         trainDestination: trainDestination,
@@ -132,16 +133,6 @@ $("#submit").on("click", function (event) {
         trainFirstTime: trainFirstTime,
         dateAdded: firebase.database.ServerValue.TIMESTAMP
     });
-
-   /* if (trainFirstTime !== moment("HH:mm")) {
-        $("#alert-wrapper").html("<div class='alert alert-danger' role='alert'>This is not a valid time!</div>");
-    }*/
-});
-
-// Clear form
-$("#submit").on("click", function (event) {
     $("#train-form")[0].reset();
+
 });
-
-
-
