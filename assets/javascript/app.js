@@ -159,6 +159,7 @@ $(document).ready(function () {
                 // Return type determines whether we continue the redirect automatically
                 // or whether we leave that to developer to handle.
                 $('.modal').modal('hide');
+                $(".footer").hide();
                 return false;
             },
             signInSuccess: function (currentUser, credential, redirectUrl) {
@@ -172,6 +173,7 @@ $(document).ready(function () {
                     backdrop: 'static',
                     keyboard: false
                 });
+                $(".footer").show();
                 document.getElementById('loader').style.display = 'none';
             }
         },
