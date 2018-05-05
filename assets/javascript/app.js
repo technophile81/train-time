@@ -151,22 +151,17 @@ $(document).ready(function () {
                 // User successfully signed in.
                 // Return type determines whether we continue the redirect automatically
                 // or whether we leave that to developer to handle.
-                $(".modal").hide();
-                return false;
-
+                $('.modal').modal('hide');
+                return true;
             },
             uiShown: function () {
                 // The widget is rendered.
                 // Hide the loader.
-                $('.modal').modal({
-                    backdrop: 'static',
-                    keyboard: false
-                });
+                document.getElementById('loader').style.display = 'none';
             }
         },
         // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
         signInFlow: 'popup',
-        signInSuccessUrl: '/train-time/',
         signInOptions: [
             // Leave the lines as is for the providers you want to offer your users.
             firebase.auth.GoogleAuthProvider.PROVIDER_ID,
@@ -185,6 +180,10 @@ $(document).ready(function () {
         console.log("user is logged in: " + firebase.auth().currentUser);
     } else {
         console.log("user is not logged in: " + firebase.auth().currentUser);
+        $('.modal').modal({
+            backdrop: 'static',
+            keyboard: false
+        });
     }
 
 
