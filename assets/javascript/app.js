@@ -141,8 +141,8 @@ $("#submit").on("click", function (event) {
 });
 
 $('.modal').modal({
-    backdrop: 'static',
-    keyboard: false
+  /*  backdrop: 'static',
+    keyboard: false*/
 })
 
 
@@ -158,7 +158,7 @@ var uiConfig = {
         // Return type determines whether we continue the redirect automatically
         // or whether we leave that to developer to handle.
         $(".modal").hide();
-        return true;
+        return false;
         
       },
       uiShown: function() {
