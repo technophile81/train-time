@@ -1,13 +1,13 @@
 @import "infinite.css";
 body {
-    padding-top: 60px;
+    padding-top: 8px;
     font-family: 'Montserrat', sans-serif;
     -webkit-font-smoothing: antialiased;
-    background: #7918f2 url("../images/train1.jpg");
-    background: -webkit-linear-gradient(-68deg, #ac32e4, #4801ff);
-    background: -o-linear-gradient(-68deg, #ac32e4, #4801ff);
-    background: -moz-linear-gradient(-68deg, #ac32e4, #4801ff);
-    background: linear-gradient(-68deg, #ac32e4, #4801ff);
+    background: #7918f2;
+    background: -webkit-linear-gradient(-68deg, rgba(172, 50, 228, 1), rgba(72, 1, 255, 1));
+    background: -o-linear-gradient(-68deg, rgba(172, 50, 228, 1), rgba(72, 1, 255, 1));
+    background: -moz-linear-gradient(-68deg, rgba(172, 50, 228, 1), rgba(72, 1, 255, 1));
+    background: linear-gradient(-68deg, rgba(172, 50, 228, 1), rgba(72, 1, 255, 1));
 }
 
 a {
@@ -19,19 +19,44 @@ a:hover {
     cursor: pointer;
 }
 
-.navbar {
-    background: linear-gradient(-68deg, #ac32e4, #4801ff);
-    box-shadow: 0px 2px 8px 2px rgba(0, 0, 0, 0.25);
+h2 {
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 15px;
 }
+
+
+/* Nav
+-------------------------------------------------- */
+
+.navbar {
+   /* background: linear-gradient(-68deg, #ac32e4, #4801ff);
+    */
+    background: transparent!important;
+    /*box-shadow: 0px 2px 8px 2px rgba(0, 0, 0, 0.25);
+*/}
 
 .navbar .description {
     color: #fff;
     font-size: .75rem;
 }
 
+.fas {
+    margin-right: 5px;
+}
+
+a.navbar-brand:hover {
+    opacity: .75;
+}
+
+/* Billboard
+-------------------------------------------------- */
+
 .jumbotron {
     background-color: transparent;
-    background: linear-gradient(-68deg, rgba(172, 50, 228, .4), rgba(72, 1, 255, .4)), url("../images/train3.jpg") no-repeat top fixed;
+    background: linear-gradient(-68deg, rgba(172, 50, 228, .5), rgba(72, 1, 255, .5)), url("../images/train3.jpg") no-repeat top fixed;
     color: rgba(255, 255, 255, 1);
     text-align: center;
     border-radius: 0;
@@ -39,6 +64,8 @@ a:hover {
     height: 260px;
     text-transform: uppercase;
     font-weight: 700;
+    padding-top: 60px;
+    margin-top: -60px;
 }
 
 .display-3 {
@@ -57,18 +84,6 @@ a:hover {
     text-shadow: 2px 2px rgba(65, 188, 251, 1);
 }
 
-.fas {
-    margin-right: 5px;
-}
-
-a.navbar-brand:hover {
-    opacity: .75;
-}
-
-#form-wrapper {
-    margin-bottom: 30px;
-    box-shadow: 0px 2px 8px 2px rgba(0, 0, 0, 0.25);
-}
 
 .error {
     display: none;
@@ -80,35 +95,12 @@ a.navbar-brand:hover {
     margin-left: 10px;
 }
 
-input.invalid,
-textarea.invalid {
-    border: 2px solid red;
-}
 
-input.valid,
-textarea.valid {
-    border: 2px solid green;
-}
-
-/* Table Stuff */
-
-h2 {
-    text-transform: uppercase;
-    color: #fff;
-    font-size: 16px;
-    font-weight: 700;
-    margin-bottom: 15px;
-}
+/* Table Styles
+-------------------------------------------------- */
 
 #schedule-wrapper {
-    border-radius: 16px;
     margin-bottom: 30px;
-    /* overflow: hidden;
-    background: #7918f2;
-    background: -webkit-linear-gradient(-68deg, #ac32e4, #4801ff);
-    background: -o-linear-gradient(-68deg, #ac32e4, #4801ff);
-    background: -moz-linear-gradient(-68deg, #ac32e4, #4801ff);
-    background: linear-gradient(-68deg, #ac32e4, #4801ff); */
 }
 
 table {
@@ -148,6 +140,8 @@ tbody tr:nth-child(even) {
 
 #form-wrapper {
     margin-top: -80px;
+    margin-bottom: 30px;
+    box-shadow: 0px 2px 8px 2px rgba(0, 0, 0, 0.25);
     background-color: #fff;
     padding: 15px;
     border-radius: 15px;
@@ -157,7 +151,6 @@ tbody tr:nth-child(even) {
     color: rgba(65, 188, 251, 1);
 }
 
-#form-wrapper input {}
 
 label {
     font-size: 12px;
@@ -183,6 +176,17 @@ label {
     opacity: 0.3 !important;
     font-size: .75rem;
 }
+
+input.invalid,
+textarea.invalid {
+    border: 2px solid red;
+}
+
+input.valid,
+textarea.valid {
+    border: 2px solid green;
+}
+
 
 /* Sticky footer styles
 -------------------------------------------------- */
