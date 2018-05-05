@@ -25,21 +25,20 @@ h2 {
     text-transform: uppercase;
     font-size: 16px;
     font-weight: 800;
-    margin-bottom: 15px;    color: #fff;
-
-    
+    margin-bottom: 15px;
+    color: #fff;
 }
-
 
 /* Nav
 -------------------------------------------------- */
 
 .navbar {
-   /* background: linear-gradient(-68deg, #ac32e4, #4801ff);
+    /* background: linear-gradient(-68deg, #ac32e4, #4801ff);
     */
-    background: transparent!important;
+    background: transparent !important;
     /*box-shadow: 0px 2px 8px 2px rgba(0, 0, 0, 0.25);
-*/}
+*/
+}
 
 .navbar .description {
     color: #fff;
@@ -87,7 +86,6 @@ a.navbar-brand:hover {
     text-shadow: 2px 2px rgba(65, 188, 251, 1);
 }
 
-
 .error {
     display: none;
     margin-left: 10px;
@@ -97,7 +95,6 @@ a.navbar-brand:hover {
     color: red;
     margin-left: 10px;
 }
-
 
 /* Table Styles
 -------------------------------------------------- */
@@ -126,7 +123,11 @@ th {
     color: #fff;
     font-weight: 900;
 }
-.table thead th { vertical-align: middle!important; }
+
+.table thead th {
+    vertical-align: middle !important;
+}
+
 tbody tr:nth-child(even) {
     background-color: rgba(255, 255, 255, 0.1);
 }
@@ -156,7 +157,6 @@ tbody tr:nth-child(even) {
     background-color: rgba(0, 0, 0, 0.2);
     padding: 4px 8px;
 }
-
 
 label {
     font-size: .8rem;
@@ -196,47 +196,33 @@ textarea.valid {
     border: 2px solid green;
 }
 
-.alert { padding: .5rem 1rem; margin-top: 5px};
-
-
-/* Sticky footer styles
--------------------------------------------------- */
-
-html {
-    position: relative;
-    min-height: 100%;
+.alert {
+    padding: .5rem 1rem;
+    margin-top: 5px
 }
 
-body {
-    margin-bottom: 60px;
-    /* Margin bottom by footer height */
-}
 
-.footer {
-    position: absolute;
-    bottom: 0;
+/* Footer -------------------------------------------------- */
+
+
+footer {
     width: 100%;
     height: 60px;
-    color: #fff;
+    display: block;
+    color: #fff !important;
     text-align: center;
     text-transform: uppercase;
     font-size: .75rem;
-    /* Set the fixed height of the footer here */
-    line-height: 60px;
-    /* Vertically center the text there */
-    /*background-color: #f5f5f5;
-    box-shadow: 0px 2px 8px 2px rgba(0, 0, 0, 0.25);
-*/
     background: linear-gradient(-68deg, rgba(172, 50, 228, .2), rgba(72, 1, 255, .2));
     box-shadow: 0px 2px 8px 2px rgba(0, 0, 0, 0.25);
 }
 
-.footer a {
+footer a {
     text-decoration: underline;
 }
 
-
-@media (max-width: 650px) { 
-.description { display: none; }
-
+@media (max-width: 650px) {
+    .description {
+        display: none;
+    }
 }
