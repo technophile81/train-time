@@ -74,7 +74,7 @@ $(document).ready(function () {
             var trainDestinationDisplay = $("<td>").text(trainDestination);
             var trainFrequencyDisplay = $("<td>").text(trainFrequency);
             var trainNextTimeDisplay = $("<td>").text(trainArrivalTime);
-            var trainMinutesDisplay = $("<td>").text(moment(minutesAway).format("mm:ss"));
+            var trainMinutesDisplay = $("<td>").text(moment(minutesAway).format("HH:mm:ss"));
 
             newRow.append(trainNameDisplay, trainDestinationDisplay, trainFrequencyDisplay, trainNextTimeDisplay, trainMinutesDisplay);
             $("#train-info").append(newRow);
