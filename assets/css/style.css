@@ -247,7 +247,7 @@ footer a {
     .description {
         display: none;
     }
-    .navbar .container {
+    .navbar>.container {
         justify-content: center;
     }
 }
