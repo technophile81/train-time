@@ -226,4 +226,5 @@ footer a {
     .description {
         display: none;
     }
+    .navbar { text-align: center; }
 }
