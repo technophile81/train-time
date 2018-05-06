@@ -65,7 +65,7 @@ $(document).ready(function () {
                 trainNextMoment = moment().add(remaining);
             }
 
-            var trainArrivalTime = trainNextMoment.format("HH:mm");
+            var trainArrivalTime = trainNextMoment.format("HH:mm:ss");
             var minutesAway = Math.ceil(trainNextMoment.diff(moment()) / 60000);
 
             // Show form stuff
