@@ -59,11 +59,9 @@ a.navbar-brand:hover {
 .jumbotron {
     background-color: transparent;
     background-position: 0px 0px;
-	background-repeat: repeat-x;
-    background: linear-gradient(-68deg, rgba(172, 50, 228, .25), rgba(172, 50, 228, .25)),url("../images/preview.jpg");
-    
-
-color: rgba(255,255,255,1);
+    background-repeat: repeat-x;
+    background: linear-gradient(-68deg, rgba(172, 50, 228, .25), rgba(172, 50, 228, .25)), url("../images/preview.jpg");
+    color: rgba(255, 255, 255, 1);
     text-align: center;
     border-radius: 0;
     box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .5);
@@ -76,21 +74,25 @@ color: rgba(255,255,255,1);
     -webkit-animation-fill-mode: forwards;
     animation: backgroundScroll 5s linear infinite;
     animation-fill-mode: forwards;
-
-
 }
 
 @-webkit-keyframes backgroundScroll {
-    from {background-position: 0 0;}
-    to {background-position: 590px 0px;}
+    from {
+        background-position: 0 0;
     }
-    
-    @keyframes backgroundScroll {
-    from {background-position: 0 0;}
-    to {background-position: 590px 0px;}
-    
+    to {
+        background-position: 590px 0px;
     }
+}
 
+@keyframes backgroundScroll {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 590px 0px;
+    }
+}
 
 .display-3 {
     font-size: 1.75rem;
@@ -223,14 +225,11 @@ textarea.valid {
     margin-top: 5px
 }
 
-
 /* Footer -------------------------------------------------- */
-
 
 footer {
     width: 100%;
     height: 60px;
-    
     display: block;
     color: #fff !important;
     text-align: center;
@@ -248,13 +247,9 @@ footer a {
     .description {
         display: none;
     }
-    .navbar { text-align: center; }
+    .navbar, .display-3 {
+        text-align: center;
+    }
 }
 
-
 /****/
-
-
-
-
-
