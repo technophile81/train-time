@@ -65,7 +65,7 @@ $(document).ready(function () {
                 trainNextMoment = moment().add(remaining);
             }
 
-            var trainArrivalTime = trainNextMoment.format("HH:mm:ss");
+            var trainArrivalTime = trainNextMoment.format("HH:mm");
             var minutesAway = Math.ceil(trainNextMoment.diff(moment()) / 60000);
 
             // Show form stuff
@@ -74,7 +74,7 @@ $(document).ready(function () {
             var trainDestinationDisplay = $("<td>").text(trainDestination);
             var trainFrequencyDisplay = $("<td>").text(trainFrequency);
             var trainNextTimeDisplay = $("<td>").text(trainArrivalTime);
-            var trainMinutesDisplay = $("<td>").text(minutesAway);
+            var trainMinutesDisplay = $("<td>").text(moment(minutesAway).format("mm:ss"));
 
             newRow.append(trainNameDisplay, trainDestinationDisplay, trainFrequencyDisplay, trainNextTimeDisplay, trainMinutesDisplay);
             $("#train-info").append(newRow);
