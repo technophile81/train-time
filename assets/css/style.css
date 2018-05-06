@@ -58,15 +58,11 @@ a.navbar-brand:hover {
 
 .jumbotron {
     background-color: transparent;
-    /*background: linear-gradient(-68deg, rgba(172, 50, 228, .5), rgba(72, 1, 255, .5)), url("../images/train3.jpg") no-repeat top fixed;
-    */
-    
     background-position: 0px 0px;
 	background-repeat: repeat-x;
     background: linear-gradient(-68deg, rgba(172, 50, 228, .25), rgba(172, 50, 228, .25)),url("../images/preview.jpg");
-
     
-    text-transform: rgba(255, 255, 255, 1);
+    text-transform: uppercase;
     text-align: center;
     border-radius: 0;
     box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .5);
